@@ -4,6 +4,6 @@ class forme(object):
     def __init__(self, point):
         self.point = point
 
-    def affiche(self):
-        print("lol")
+    def affiche(self,fen):
+        print("affichage minimal d'une forme")
         # affichage via la bibliothèque graphique

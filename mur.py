@@ -1,4 +1,5 @@
-import brique
+from brique import brique
+from random import randint
 
 class mur(object):
     """docstring for mur."""
@@ -7,11 +8,16 @@ class mur(object):
         self.hauteur = hauteur
         self.largeur = largeur
         self.briques = []
+        self.lbrique = 50
+        self.hbrique = 30
         self.construct()
-        self.lbrique = 10
-        self.hbrique = 20
+
 
     def construct(self):
         for i  in range(self.hauteur):
             for j in range(self.largeur):
-                self.briques.append(new brique(self.hbrique, self.lbrique))
+                self.briques.append(brique((j*(self.lbrique+5), i*(self.hbrique+5)),(self.lbrique, self.hbrique),[randint(0,255) for k in range(3)]))
+
+    def affiche(self,fen):
+        for br in self.briques:
+            br.affiche(fen)
