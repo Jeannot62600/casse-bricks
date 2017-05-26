@@ -17,6 +17,9 @@ class brique(forme):
     def getB(self):
         return {'coord':self.coord, 'dim':self.dim, 'col':self.couleur, 'force':self.force}
 
+    def maj_color(self, palette):
+        self.couleur = palette[self.force-1][1]
+
     def getBord(self):
         return self.coord + [self.coord[0]+self.dim[0], self.coord[1]+self.dim[1]]
 
@@ -37,7 +40,7 @@ class brique(forme):
         return self.affichage
 
     def appartient(self,x,y):
-        a,b,c,d = self.coord[0],self.coord[1], self.coord[0]+self.dim[0], self.coord[1]+self.dim[1]
+        a,b,c,d = self.coord[0], self.coord[1], self.coord[0]+self.dim[0], self.coord[1]+self.dim[1]
         if x > a and x < c and y > b and y < d:
             return True
         return False
