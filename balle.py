@@ -7,13 +7,17 @@ from forme import forme
 
 class balle(forme):
     """docstring for mur."""
-    def __init__(self, coordonnees, rayon = 5, angle = 0, couleur = (255,255,255), vitesse = 3):
+    def __init__(self, coordonnees, rayon = 5, angle = 0, couleur = (255,255,255)):
         super(balle, self).__init__(coordonnees)
         self.coord = coordonnees
         self.rayon = rayon
         self.angle = angle
         self.couleur = couleur
-        self.vitesse = vitesse
+        self.vit_set = False
+        self.vitesse = 0
+
+    def set_pos(self, x, y):
+        self.coord = [x,y]
 
     def affiche(self, fen):
         self.newpos()
@@ -39,3 +43,12 @@ class balle(forme):
         if briq.appartient(x,y+r) or briq.appartient(x,y-r):
             self.angle = - self.angle
             briq.touch()
+
+    def lancer(self, vitesse):
+        if not self.vit_set:
+            self.vitesse = vitesse
+            self.vit_set = True
+
+    def deb_set_pos(self,x, y):
+        if not self.vit_set:
+            self.set_pos(x,y)

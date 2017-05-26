@@ -5,7 +5,7 @@ from pygame.locals import *
 class brique(forme):
     """docstring for brique."""
 
-    def __init__(self,coordonnees, dimensions, couleur=(225,0,0), force = 1):
+    def __init__(self,coordonnees, dimensions, couleur=(225,0,0), force = 2):
         super(brique, self).__init__(coordonnees)
         self.dim = dimensions
         self.coord = coordonnees

@@ -17,7 +17,7 @@ class mur(object):
     def construct(self):
         for i  in range(self.hauteur):
             for j in range(self.largeur):
-                self.briques.append(brique((j*(self.lbrique+5), i*(self.hbrique+5)),(self.lbrique, self.hbrique),[randint(0,255) for k in range(3)], force = 1))
+                self.briques.append(brique((j*(self.lbrique+5),50+ i*(self.hbrique+5)),(self.lbrique, self.hbrique),[randint(0,255) for k in range(3)], force = 1))
 
     def affiche(self,fen):
         for br in self.briques:

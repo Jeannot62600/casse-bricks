@@ -14,8 +14,8 @@ fenetre = pygame.display.set_mode((640, 480), RESIZABLE)
 continuer = 1
 
 m1 = mur(5,12)
-b1 = balle((500,300), angle = pi/6, rayon = 10, vitesse=300/fps)
-r1 = raquette([200,430], [50,5])
+b1 = balle((500,300), angle = pi/6, rayon = 10)
+r1 = raquette([200,430], [100,10])
 
 
 while continuer:
@@ -25,6 +25,10 @@ while continuer:
             continuer = 0
         if event.type == MOUSEMOTION:
             r1.deplace(event.pos[0])
+            b1.deb_set_pos(event.pos[0]+50, 410)
+        if event.type == KEYDOWN and event.key == K_SPACE:
+            b1.lancer(vitesse=300/fps)
+
     r1.collision(b1)
     m1.collision(b1)
     m1.affiche(fenetre)
